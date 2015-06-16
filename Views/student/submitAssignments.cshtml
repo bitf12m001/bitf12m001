@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "submitAssignments";
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+
+@using MvcApplication2.Models;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+  <body>       
+         <br />
+        <br />
+        <br />
+      <div>
+         
+          <ul id="CategorySelector">
+              
+    @{
+        Database1Entities d = new Database1Entities();
+        string y = Convert.ToString(Session["uname"]);
+        userTable u = d.userTables.First(j => j.Name == y);
+       
+        foreach(virtualClass a in Model)
+      {
+            classStudent cla=null;
+            try{
+                cla = d.classStudents.Where(m => m.cid == a.Id).First(n => n.sid == u.Id);
+            }
+            catch{
+            }
+          DateTime mm=Convert.ToDateTime(DateTime.Now);
+          List<Announcement> l = d.Announcements.ToList();
+            if(cla!=null){
+    <li> <h2>@a.name</h2></li>
+        
+        foreach(Announcement ll in l){
+            
+            if(ll.ForClass==a.name && cla.sid==u.Id){
+                if (ll.SubDate > mm)
+                {
+                 <li>-->  <form action="/student/assignmentSubmitted" method="post" enctype="multipart/form-data">Upload File(File Name must be ur username_@ll.atitle;[else not acceptable]): <input type="file" name="image" /><input type="submit" value="Submit"/></form></li>
+                }
+                else if(ll.SubDate <= mm){
+                    <li><b>@ll.atitle</b> <br />(Time Over)</li>
+                }
+            }
+        }
+        }
+    }
+    }
+</ul>
+  </div>
+      <div>
+         
+              
+          
+      </div>
+</body>
+</html>

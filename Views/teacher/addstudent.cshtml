@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "addstudent";
+    Layout = "~/Views/Shared/Teacher.cshtml";
+}
+@using MvcApplication2.Models;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+    <body >
+        
+                <br />
+    <br />
+        <h2 class="page-header">Enter the student You Want to add</h2>
+    <div>
+        <form method="post" action="/teacher/studentAdded">
+            <div> <select name="ClassSelector">
+    <option value="0">Select Class</option>
+    @{  Database1Entities d = new Database1Entities();
+        List<virtualClass> l = d.virtualClasses.ToList();
+       foreach (virtualClass v in l)
+       {
+           string y=Convert.ToString(Session["uname"]);
+           
+           if (v.tid == d.userTables.First(x => x.Name == y).Id)
+          {<option value="@v.name">@v.name</option>}}
+        }
+</select>
+  </div>
+      
+            <div>
+          <select name="StudentSelector">
+    <option value="0">Select Student</option>
+    @{List<userTable> u = d.userTables.ToList();
+        foreach(userTable a in u)
+      {
+          if(a.status==2)
+          {
+    <option value="@a.Name">@a.Name</option>
+    }
+    }
+    }
+</select>
+  </div>
+            <input type="submit" value="add" name="submit" /><br /><br />
+        </form>
+    </div>
+
+</body>
+</html>
+
+

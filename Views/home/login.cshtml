@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using MvcApplication2.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+</head>
+<body>
+        <div class="col-md-2" style="grid-row-align:center; text-align:center;margin-left:250px">
+            <div class="list-group">
+                <form method="post" action="/home/check">
+                    <div class="bs-docs-header" id="content" style="background-color:black; color:white; padding-top:1px; 
+                    padding-bottom:1px;" tabindex="-1"> <h4>Sign In</h4></div><br />
+                    <label for="Name">UserName</label><br />
+                    <input type="text" class="form-control" id="IName" name="Name" placeholder="Enter UserName" /><br />
+                    <label for="password">password</label><br />
+                    <input type="password" class="form-control" id="Pass" name="Pass" placeholder="Password" /><br />
+                    <div class='column' role="radiogroup" >
+                        <input type='radio' id='st' name='ch' value='2' >
+                    <label for='student'>Student</label>
+                        <input type='radio' id='tr' name='ch' value='1' style="visibility:visible; -moz-appearance:radio">
+                    <label for='teacher'>Teacher</label>
+	              </div>
+                    <button type="submit" class="btn btn-default" style="background-color:black; color:white; 
+                    padding-top:1px; padding-bottom:1px;">Log In</button>
+                </form>
+            </div>
+        </div>
+        
+        <!----------------------------------------------------------------->
+        <div class="col-md-4" style="grid-row-align:center; text-align:center;margin-left:250px">
+            <div class="bs-docs-header" id="Div1" style="background-color: black; color: white; padding-top: 1px; 
+            padding-bottom: 1px; width: 50%;" tabindex="-1"><h4>Create new account</h4></div>
+            <!----forms---->
+            <form style="width:50%" action="/home/signedup" method="post" enctype="multipart/form-data">
+                <br />
+                <div class="form-group">
+                    <div id="checking">Checking...</div>
+<div>
+
+    Name: <input type="text" name="Name" id="Name" /> <input type="button" id="b1" value="Check" />
+    <div id="result"></div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+               
+                var userName = $('#Name').val();
+                $('#checking').show();
+                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data)
+                {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+                        
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</div>
+
+                </div>
+                <div>
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter email" />
+
+                </div>
+                <div>
+                    <label for="Password1">Password</label>
+                    <input type="password" class="form-control" name="Pass" placeholder="Password"/>
+                </div>
+                 <div class='column' role="radiogroup" >
+                        <input type='radio' id='stu' name='status' value='2' >
+                    <label for='student'>Student</label>
+                        <input type='radio' id='tea' name='status' value='1' style="visibility:visible; -moz-appearance:radio">
+                    <label for='teacher'>Teacher</label>
+	              </div>
+                <input type="file" name="imageing" />
+                 <button type="submit" class="btn btn-success">Create Account</button>
+            </form>
+            <!--End forms-->
+        </div>
+</body>
+</html>

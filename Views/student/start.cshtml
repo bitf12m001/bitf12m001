@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "start";
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+  <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+
+    <body>
+        
+        <form action="/student/started" method="post">
+            <br />
+
+            <div class="form-group" style="width:40% ">
+                Quesion : <b> @ViewBag.ques </b>
+                <br />
+                Option A : <b>@ViewBag.a</b>
+                 <br />
+                Option B :  <b>@ViewBag.b</b>
+                 <br />
+                Option C :  <b> @ViewBag.c </b>
+                 <br />
+                Option D :  <b>@ViewBag.d</b>
+                 <br />
+                Enter A/B/C/D(correct Option)
+                <input type="text" name="cor" />
+                 <input type="submit" value="Next" /><br /><br />
+                </div>
+                </form>
+
+ 
+
+
+</body>
+</html>

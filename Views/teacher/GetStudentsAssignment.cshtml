@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "GetStudentsAssignment";
+    Layout = "~/Views/Shared/Teacher.cshtml";
+}
+@using MvcApplication2.Models;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+  <body>       
+         <br />
+        <br />
+        <br />
+      <div>
+          
+          <ul id="CategorySelector">
+              
+    @{
+        Database1Entities d = new Database1Entities();
+        string y = Convert.ToString(Session["uname"]);
+        userTable u = d.userTables.First(j => j.Name == y);
+       
+        foreach(virtualClass a in Model)
+      {
+            if(a.tid==u.Id)
+            {
+                <li><form action="/teacher/GetClassStudents/@a.Id" method="get" ><input type="submit" value="@a.name"/></form></li>
+        
+            }
+        }
+        
+              }
+</ul>
+  </div>
+      <div>
+         
+              
+          
+      </div>
+</body>
+</html>

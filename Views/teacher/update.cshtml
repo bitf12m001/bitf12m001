@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "update";
+    Layout = "~/Views/Shared/Teacher.cshtml";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+
+    <body>
+         <form action ="/teacher/updated" method ="post">
+            <br />
+
+            <div class="form-group" style="width:40% ">
+                <label for="name">name*</label>
+                <input type="text" class="form-control" name="update" placeholder="Enter quiz u want to update"/>
+                 <input type="text" class="form-control" name="questionno" placeholder="Enter question No  u want to change "/>
+                 <input type="text" class="form-control" name="question" placeholder="Enter updated question "/>
+                 <input type="text" class="form-control" name="optionA" placeholder="Enter option u want to update"/>
+                 <input type="text" class="form-control" name="optionB" placeholder="Enter option u want to update"/>
+                 <input type="text" class="form-control" name="optionC" placeholder="Enter option u want to update"/>
+                 <input type="text" class="form-control" name="optionD" placeholder="Enter option u want to update"/>
+                <input type="text" class="form-control" name="Correct" placeholder="Enter COrrect"/>
+                 
+            </div>
+             <input type="submit" value="Submit" name="ok" /><br /><br />
+             </form>
+</body>
+</html>
+

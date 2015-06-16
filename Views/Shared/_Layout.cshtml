@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>TFS</title>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/engine0/style.css" />
+<script type="text/javascript" src="~/engine0/jquery.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+     <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 1366px 750px;
+            background-image: url(../Content/background.jpg);
+        }
+
+        #footer {
+            font-size: 17px;
+            font-weight: bold;
+            font-family: Narkisim;
+            color: white;
+            clear: both;
+            text-align: left;
+            padding: 5px;
+            background-image: url(../Content/about.jpg);
+            opacity: 0.9;
+        }
+
+        #bgImg {
+            background-image: url(../Content/about.jpg);
+        }
+    </style>
+</head>
+    <body>
+        <div>
+        <nav class="nav navbar-inverse" role="navigation" style="background-color:aquamarine">
+           
+             <div class="navbar-header" style="font-family: 'Old English Text MT'; color:lightsteelblue;">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                        data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                 <a class="navbar-brand"></a>
+                <a style="font-size: xx-large; font-family:'Old English Text MT'; color:black; background-color: aquamarine" class="navbar-brand" href="~/">Teacher Facilitation system</a>
+            </div>
+
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li style="margin-left:10px;margin-right:10px;background-color:aquamarine;color:white"><a href="~/"><span><b>Home</b></span></a></li>
+                    <li style="margin-left:10px;margin-right:10px;background-color:aquamarine"><a href="/home/login"><span><b>Login/SignUp</b></span></a></li>
+                    <li style="margin-left:10px;margin-right:10px;background-color:aquamarine"><a href="/home/about"><span><b>Contact/About Us</b></span></a></li>
+                   </ul>
+                </div>
+           
+        </nav>
+         </div>
+        <div id="wowslider-container0">
+<div class="ws_images"><ul>
+		<li><img src="~/data0/images/1.jpg" alt="1" title="Vision" id="wows0_0"/></li>
+		<li><img src="~/data0/images/2.jpg" alt="2" title="Discussion" id="wows0_1"/></li>
+		<li><img src="~/data0/images/5.jpg" alt="5" title="High Aims" id="wows0_2"/></li>
+		<li><img src="~/data0/images/standardizedtest.jpg" alt="bootstrap carousel example" title="standardized-test" id="wows0_3"/></li>
+		<li><img src="~/data0/images/studystuff1.jpg" alt="study-stuff" title="study-stuff" id="wows0_4"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="Vision"><span><img src="~/data0/tooltips/1.jpg" alt="1"/>1</span></a>
+		<a href="#" title="High Aims"><span><img src="~/data0/tooltips/2.jpg" alt="2"/>2</span></a>
+		<a href="#" title="Discussion"><span><img src="~/data0/tooltips/5.jpg" alt="5"/>3</span></a>
+		<a href="#" title="standardized-test"><span><img src="~/data0/tooltips/standardizedtest.jpg" alt="standardized-test"/>4</span></a>
+		<a href="#" title="study-stuff"><span><img src="~/data0/tooltips/studystuff1.jpg" alt="study-stuff1"/>5</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com/vi">angular carousel</a> by WOWSlider.com v8.2</div>
+<div class="ws_shadow"></div>
+</div>	
+<script type="text/javascript" src="~/engine0/wowslider.js"></script>
+<script type="text/javascript" src="~/engine0/script.js"></script>
+    @RenderBody()
+        <div id="footer" class="row">
+        <div id="bgImg" style="font-size:17px; font-weight:bold; color:lightgray; font-family:Narkisim; clear:both; text-align:center">
+            Enterprize Application Development
+        </div>
+
+        <br />
+
+        <div >
+            <a href="https://www.facebook.com/mubasharrasheed308" target="_blank"><img src="~/Content/Images/facebook1.png" width="60" height="60"></a>&nbsp&nbsp&nbsp
+            <a href="https://twitter.com/mubashar308" target="_blank"><img src="~/Content/Images/twiter1.png" width="60" height="60"></a>&nbsp&nbsp&nbsp
+            <a href="https://plus.google.com/Mubashar" target="_blank"><img src="~/Content/Images/google1.png" width="60" height="60"></a>&nbsp&nbsp&nbsp
+            <a href="mailto:mubasharrasheed86@yahoo.com" target="_blank"><img src="~/Content/Images/yahoo1.png" width="60" height="60"></a>
+
+            <img src="~/Content/Images/follow.png" width="200" height="120" class="pull-right"><br>
+        </div>
+        <div class="col-sm-2"></div>
+        <div style="background-color:black; font-size:17px; font-weight:bold; font-family:Narkisim; clear:both; text-align:center">
+            &copy Copyright - All Rights Reserved by <a href="https://www.facebook.com/mubasharrasheed308" target="_blank"><b style="color:yellow;">Mubashar</b></a> &reg
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

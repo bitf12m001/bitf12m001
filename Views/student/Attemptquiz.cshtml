@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Attemptquiz";
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+
+   
+    <body>
+    
+         <br />
+    <h2 class="page-header">Enter the Quiz id, u want to Attempt </h2>
+    <div>
+        <form action="/student/start" method="post">
+            ID: <input type="text" name="i" /><br /><br />
+            <input type="submit" value="Enter" name="submit" />
+        </form>
+    </div>
+
+</body>
+</html>

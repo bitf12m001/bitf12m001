@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "viewAssignments";
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+@using MvcApplication2.Models;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+  <body>       
+         <br />
+        <br />
+        <br />
+      <div>
+          <form action="/student/download" method="post">
+          <ul id="CategorySelector">
+              
+    @{
+        Database1Entities d = new Database1Entities();
+        string y = Convert.ToString(Session["uname"]);
+        //&& a.classStudents.First(x => x.sid == d.userTables.First(j=> j.Name == y).Id)!=null
+        userTable u = d.userTables.First(j => j.Name == y);
+       
+        foreach(virtualClass a in Model)
+      {
+            classStudent cla=null;
+            try{
+           cla= d.classStudents.Where(m => m.cid == a.Id).First(n=>n.sid==u.Id);
+            }
+            catch{
+            }
+          
+          List<Announcement> l = d.Announcements.Where(x=>x.ForClass==a.name).ToList();
+            if(cla!=null){
+    
+        <li> <b>Class @a.name</b></li>
+        foreach(Announcement ll in l){
+                 <li><input type="submit" name="fname" value="@ll.atitle"/></li>
+            }
+        }
+        }
+    }
+</ul>
+          </form>
+  </div>
+      <div>
+         
+              
+          
+      </div>
+</body>
+</html>
+

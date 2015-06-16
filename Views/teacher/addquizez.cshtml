@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "addquizez";
+    Layout = "~/Views/Shared/Teacher.cshtml";
+}
+
+@model MvcApplication2.Models.question
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+
+    <body >
+
+             @using(Html.BeginForm("quizadded","teacher",FormMethod.Post))
+                {
+                 @Html.ValidationSummary(true)
+            <br />
+                 <strong>@Html.LabelFor(model => model.ques)</strong>
+                       @Html.TextBoxFor(model => model.ques)
+                        @Html.ValidationMessageFor(model => model.ques)
+                 <br />
+                  <strong>@Html.LabelFor(model => model.a)</strong>
+                       @Html.TextBoxFor(model => model.a)
+                 @Html.ValidationMessageFor(model => model.a)
+                 <br />
+                         <strong>@Html.LabelFor(model => model.b)</strong>
+                       @Html.TextBoxFor(model => model.b)
+                 @Html.ValidationMessageFor(model => model.b)
+                 <br />
+                        <strong>@Html.LabelFor(model => model.c)</strong>
+                       @Html.TextBoxFor(model => model.c)
+                 @Html.ValidationMessageFor(model => model.c)
+                 <br />
+                      <strong>@Html.LabelFor(model => model.d)</strong>
+                       @Html.TextBoxFor(model => model.d)
+                 @Html.ValidationMessageFor(model => model.d)
+                 <br />
+                  <strong>@Html.LabelFor(model => model.cor)</strong>
+                       @Html.TextBoxFor(model => model.cor)
+                 @Html.ValidationMessageFor(model => model.cor)
+                 <br />
+             <input type="submit" value="Submit" name="submit" /><br /><br />
+             }
+
+</body>
+</html>

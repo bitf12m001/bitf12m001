@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "SeeresulT";
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+
+   
+  <body>
+        <br /><br />
+    <h2 class="page-header">Check Result </h2>
+    <div>
+        <form action="/student/result" method="post">
+             <div class="form-group" style="width:40% ">
+                <label for="ID">ID*</label>
+                <input type="text" class="form-control" name="rid" placeholder="Enter Your ID"/>
+
+            </div>
+            <a href="ResultPage"><input type="submit" value="enter" name="submit" /></a><br /><br />
+        </form>
+    </div>
+
+</body>
+</html>

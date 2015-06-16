@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "assignment";
+     Layout = "~/Views/Shared/Teacher.cshtml";
+}
+@using MvcApplication2.Models;
+
+<h2>assignment</h2>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+   
+</head>
+
+    <body >
+
+         <form action="/teacher/assignmentadded" method="post" enctype="multipart/form-data">
+           
+
+            <div class="form-group" style="width:40% ">
+                <label for="text">title* (Must Be Your File Name)</label>
+                <input type="text" class="form-control" name="tit" placeholder="Enter Your title"/>
+
+                <label for="text">Submission Date In Format mm/dd/yyyy hh:mm:ss AM/PM</label>
+                <input type="text" class="form-control" name="subdate" placeholder="Enter Your content"/>
+            <div> <select name="ClassSelector">
+    <option value="0">Select Class</option>
+                @{  Database1Entities d = new Database1Entities();
+        List<virtualClass> l = d.virtualClasses.ToList();
+       foreach (virtualClass v in l)
+       {
+           string y=Convert.ToString(Session["uname"]);
+           
+           if (v.tid == d.userTables.First(x => x.Name == y).Id)
+          {<option value="@v.name">@v.name</option>}
+                                                   }
+                                                  
+        }
+                </select>
+  </div>
+                Upload File: <input type="file" name="image" />
+            </div>
+
+              <input type="submit" value="OK" name="submit" /><br /><br />
+             </form>
+
+</body>
+</html>

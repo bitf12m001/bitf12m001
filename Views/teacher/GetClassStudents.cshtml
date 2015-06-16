@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "GetClassStudents";
+    Layout = "~/Views/Shared/Teacher.cshtml";
+}
+@using MvcApplication2.Models;
+
+<html>
+    <head><title>
+          </title>
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <br />
+        @{
+            Database1Entities d=new Database1Entities();
+            List<Announcement> annn = d.Announcements.ToList();
+            foreach (Announcement newan in annn)
+            {
+
+                int id = ViewBag.cid;
+                virtualClass vc = d.virtualClasses.First(m => m.Id == id);
+                if (newan.ForClass == vc.name)
+                {
+                <b>@newan.atitle</b>
+                 }
+                
+                foreach (classStudent a in Model)
+            {
+                    userTable u=d.userTables.First(x=>x.Id==a.sid);
+              //  virtualClass vc=d.virtualClasses.First(m=>m.Id==a.cid);
+                string y = Convert.ToString(DateTime.Now);
+               // List<Announcement> ann=d.Announcements.Where(j=>j.ForClass==vc.name).ToList();
+                if(newan.ForClass==vc.name){
+           <form action="/teacher/Get" method="post"><input type="hidden" value="@newan.atitle" name="ass" /><input type="hidden" value="@u.Name" name="stu" /><input type="submit" value="@u.Name" /></form>
+                }
+                }
+            }
+            }
+    </body>
+
+</html>

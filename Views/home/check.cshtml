@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "check";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    string url="";
+    string s = @Request["ch"];
+    if (s == "t")
+        url = "/teacher/";
+else if (s == "s")
+        url="/student/";
+    }
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+<h2>check</h2>
+<h1>Redirecting</h1>
+<a href="@url" >Click</a>
